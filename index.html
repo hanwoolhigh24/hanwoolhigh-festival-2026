@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 새생명 전도축제 기획안</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #f5f4f0; color: #1a1a1a; font-size: 14px; line-height: 1.6; }
+
+  /* 인쇄 */
+  @media print {
+    body { background: #fff; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .container { max-width: 100%; padding: 0; }
+    .section { box-shadow: none; border: 1px solid #ddd; }
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+
+  /* 상단 버튼 */
+  .top-bar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 16px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 7px 14px; border-radius: 8px; border: 1px solid #ccc; background: #fff; cursor: pointer; color: #444; font-family: inherit; }
+  .btn:hover { background: #f0f0f0; }
+  .btn-primary { background: #0F6E56; color: #fff; border-color: #0F6E56; }
+  .btn-primary:hover { background: #085041; }
+
+  /* 커버 */
+  .cover { background: linear-gradient(135deg, #E1F5EE 0%, #E6F1FB 100%); border-radius: 16px; padding: 40px 36px; margin-bottom: 24px; border: 1px solid #c8e6d8; }
+  .cover-tag { display: inline-block; background: #0F6E56; color: #E1F5EE; font-size: 11px; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.05em; }
+  .cover-title { font-size: 28px; font-weight: 700; color: #0a3d2e; margin-bottom: 8px; }
+  .cover-slogan { font-size: 15px; color: #1D9E75; margin-bottom: 20px; font-weight: 500; }
+  .cover-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ci { background: rgba(255,255,255,0.8); border-radius: 10px; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.9); }
+  .ci-label { font-size: 11px; color: #5F5E5A; margin-bottom: 3px; }
+  .ci-val { font-size: 13px; font-weight: 500; color: #0a3d2e; }
+
+  /* 섹션 */
+  .section { background: #fff; border-radius: 14px; padding: 28px; margin-bottom: 20px; border: 1px solid #e8e6e0; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+  .s-icon { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .icon-teal { background: #E1F5EE; color: #0F6E56; }
+  .icon-blue { background: #E6F1FB; color: #185FA5; }
+  .icon-amber { background: #FAEEDA; color: #854F0B; }
+  .icon-gray { background: #F1EFE8; color: #5F5E5A; }
+  .section-title { font-size: 17px; font-weight: 700; color: #1a1a1a; }
+  .section-sub { font-size: 12px; color: #888; margin-top: 2px; }
+
+  /* 컨셉 그리드 */
+  .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .concept-card { background: #f9f8f5; border-radius: 10px; padding: 14px; border: 1px solid #eee; }
+  .concept-name { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+  .concept-desc { font-size: 12px; color: #666; line-height: 1.6; }
+
+  /* 프로그램 타임라인 */
+  .part-header { border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; }
+  .part-teal { background: #E1F5EE; border: 1px solid #9FE1CB; }
+  .part-blue { background: #E6F1FB; border: 1px solid #B5D4F4; }
+  .part-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .part-teal .part-title { color: #085041; }
+  .part-blue .part-title { color: #0C447C; }
+  .part-sub-text { font-size: 12px; margin-top: 3px; }
+  .part-teal .part-sub-text { color: #0F6E56; }
+  .part-blue .part-sub-text { color: #185FA5; }
+  .part-badge { font-size: 10px; padding: 2px 9px; border-radius: 10px; font-weight: 700; }
+  .pb-teal { background: #0F6E56; color: #fff; }
+  .pb-blue { background: #185FA5; color: #fff; }
+  .time-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .ts-card { border-radius: 8px; padding: 10px 14px; }
+  .ts-teal { background: #E1F5EE; border: 1px solid #9FE1CB; }
+  .ts-blue { background: #E6F1FB; border: 1px solid #B5D4F4; }
+  .ts-label { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+  .ts-teal .ts-label { color: #085041; }
+  .ts-blue .ts-label { color: #0C447C; }
+  .ts-val { font-size: 12px; color: #1a1a1a; }
+  .ptl-item { display: flex; gap: 0; }
+  .ptl-left { width: 115px; flex-shrink: 0; padding-right: 12px; text-align: right; padding-top: 13px; }
+  .ptl-time { font-size: 11px; font-weight: 700; line-height: 1.3; }
+  .ptl-dur { font-size: 10px; margin-top: 1px; }
+  .ptl-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 20px; }
+  .ptl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 15px; }
+  .ptl-line { width: 1.5px; flex: 1; margin-top: 3px; min-height: 12px; }
+  .ptl-right { flex: 1; padding: 10px 0 14px 12px; }
+  .ptl-name { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 3px; }
+  .ptl-who { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .who-pill { font-size: 10px; padding: 2px 8px; border-radius: 8px; }
+  .ptl-note { font-size: 11px; margin-top: 4px; color: #666; line-height: 1.5; }
+  .p1-prep .ptl-time { color: #5F5E5A; } .p1-prep .ptl-dur { color: #888; }
+  .p1-prep .ptl-dot { background: #888780; } .p1-prep .ptl-line { background: #D3D1C7; }
+  .p1-prep .who-pill { background: #F1EFE8; color: #444441; }
+  .p1 .ptl-time { color: #0F6E56; } .p1 .ptl-dur { color: #1D9E75; }
+  .p1 .ptl-dot { background: #1D9E75; } .p1 .ptl-line { background: #9FE1CB; }
+  .p1 .who-pill { background: #E1F5EE; color: #085041; }
+  .p1-key .ptl-dot { background: #0F6E56; width: 12px; height: 12px; margin-top: 13px; }
+  .p1-special .ptl-time { color: #854F0B; } .p1-special .ptl-dur { color: #BA7517; }
+  .p1-special .ptl-dot { background: #BA7517; } .p1-special .ptl-line { background: #FAC775; }
+  .p1-special .who-pill { background: #FAEEDA; color: #633806; }
+  .p2 .ptl-time { color: #185FA5; } .p2 .ptl-dur { color: #378ADD; }
+  .p2 .ptl-dot { background: #378ADD; } .p2 .ptl-line { background: #B5D4F4; }
+  .p2 .who-pill { background: #E6F1FB; color: #0C447C; }
+  .prog-badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 5px; }
+  .badge-teal { background: #E1F5EE; color: #085041; }
+  .badge-blue { background: #E6F1FB; color: #0C447C; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+
+  /* 홍보 일정 타임라인 */
+  .tl { position: relative; }
+  .tl-item { display: flex; gap: 0; }
+  .tl-left { width: 120px; flex-shrink: 0; padding-right: 14px; text-align: right; padding-top: 14px; }
+  .tl-date { font-size: 12px; font-weight: 700; line-height: 1.3; }
+  .tl-dow { font-size: 10px; color: #999; margin-top: 1px; }
+  .tl-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 22px; }
+  .tl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 16px; }
+  .tl-line { width: 2px; flex: 1; margin-top: 2px; min-height: 16px; }
+  .tl-right { flex: 1; padding: 10px 0 20px 14px; }
+  .tl-phase { font-size: 10px; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 4px; }
+  .tl-title { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+  .tl-detail { font-size: 12px; color: #666; line-height: 1.7; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; }
+
+  .phase-prep .tl-dot { background: #888780; }
+  .phase-prep .tl-line { background: #D3D1C7; }
+  .phase-prep .tl-date { color: #5F5E5A; }
+  .phase-prep .tl-phase { color: #5F5E5A; }
+  .phase-prep .tag { background: #F1EFE8; color: #444441; }
+  .phase-care .tl-dot { background: #1D9E75; }
+  .phase-care .tl-line { background: #9FE1CB; }
+  .phase-care .tl-date { color: #0F6E56; }
+  .phase-care .tl-phase { color: #0F6E56; }
+  .phase-care .tag { background: #E1F5EE; color: #085041; }
+  .phase-digital .tl-dot { background: #378ADD; }
+  .phase-digital .tl-line { background: #B5D4F4; }
+  .phase-digital .tl-date { color: #185FA5; }
+  .phase-digital .tl-phase { color: #185FA5; }
+  .phase-digital .tag { background: #E6F1FB; color: #0C447C; }
+  .phase-invite .tl-dot { background: #BA7517; }
+  .phase-invite .tl-line { background: #FAC775; }
+  .phase-invite .tl-date { color: #854F0B; }
+  .phase-invite .tl-phase { color: #854F0B; }
+  .phase-invite .tag { background: #FAEEDA; color: #633806; }
+  .phase-final .tl-dot { background: #D85A30; }
+  .phase-final .tl-line { background: #F0997B; }
+  .phase-final .tl-date { color: #993C1D; }
+  .phase-final .tl-phase { color: #993C1D; }
+  .phase-final .tag { background: #FAECE7; color: #712B13; }
+  .phase-dday .tl-dot { background: #534AB7; border: 2px solid #3C3489; width: 14px; height: 14px; margin-top: 14px; }
+  .phase-dday .tl-date { color: #3C3489; }
+  .phase-dday .tl-phase { color: #3C3489; }
+  .phase-dday .tl-title { color: #3C3489; font-size: 14px; }
+  .phase-dday .tag { background: #EEEDFE; color: #26215C; }
+
+  .hl { border-left: 3px solid; border-radius: 0 8px 8px 0; padding: 8px 12px; margin-top: 7px; }
+  .hl-teal { border-color: #1D9E75; background: #E1F5EE; color: #085041; font-size: 12px; }
+  .hl-blue { border-color: #378ADD; background: #E6F1FB; color: #0C447C; font-size: 12px; }
+  .hl-amber { border-color: #BA7517; background: #FAEEDA; color: #633806; font-size: 12px; }
+
+  /* 카드 케어 섹션 */
+  .weeks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .week-card { background: #fff; padding: 14px; border-right: 1px solid #e0e0e0; }
+  .week-card:last-child { border-right: none; }
+  .week-accent { height: 3px; border-radius: 0; margin-bottom: 10px; }
+  .w1 .week-accent { background: #1D9E75; }
+  .w2 .week-accent { background: #378ADD; }
+  .w3 .week-accent { background: #BA7517; }
+  .week-num { font-size: 10px; color: #999; margin-bottom: 4px; letter-spacing: 0.04em; }
+  .week-who { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+  .week-desc { font-size: 11px; color: #666; line-height: 1.6; }
+
+  /* 전달 방법 */
+  .delivery-row { display: flex; gap: 8px; margin-top: 12px; }
+  .d-chip { flex: 1; background: #f9f8f5; border: 1px solid #e8e6e0; border-radius: 10px; padding: 10px 12px; text-align: center; }
+  .d-chip-label { font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 3px; }
+  .d-chip-desc { font-size: 11px; color: #888; line-height: 1.4; }
+  .d-badge { display: inline-block; margin-top: 4px; font-size: 10px; padding: 2px 7px; border-radius: 10px; background: #FAEEDA; color: #633806; }
+
+  /* 카드 포함 내용 */
+  .card-includes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+  .ci-item { background: #f9f8f5; border-radius: 8px; padding: 10px; text-align: center; border: 1px solid #eee; }
+  .ci-icon { font-size: 18px; color: #185FA5; margin-bottom: 4px; }
+  .ci-text { font-size: 11px; color: #1a1a1a; line-height: 1.4; }
+
+  /* 간식 pill */
+  .snack-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+  .snack-pill { font-size: 12px; padding: 4px 12px; border-radius: 20px; background: #E1F5EE; color: #085041; }
+  .snack-del { background: #f0f0f0; color: #aaa; text-decoration: line-through; }
+
+  /* 디지털 심방 */
+  .digital-card { border: 2px dashed #c8e6d8; border-radius: 12px; padding: 16px; }
+  .msg-bubble { background: #f9f8f5; border-radius: 10px; padding: 14px 16px; margin-bottom: 8px; border-left: 3px solid; }
+  .mb-teal { border-color: #1D9E75; }
+  .mb-blue { border-color: #378ADD; }
+  .mb-amber { border-color: #BA7517; }
+  .msg-label { font-size: 10px; color: #999; margin-bottom: 5px; letter-spacing: 0.04em; font-weight: 700; }
+  .msg-body { font-size: 12px; color: #1a1a1a; line-height: 1.8; }
+  .msg-note { font-size: 11px; color: #888; margin-top: 6px; }
+
+  /* 카드 문구 샘플 */
+  .writer-header { display: flex; align-items: center; gap: 8px; margin: 18px 0 10px; }
+  .writer-badge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: #fff; }
+  .wb-teal { background: #1D9E75; }
+  .wb-blue { background: #185FA5; }
+  .wb-amber { background: #BA7517; }
+  .wb-coral { background: #D85A30; }
+  .writer-name { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+  .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .sample-card { background: #f9f8f5; border: 1px solid #eee; border-radius: 12px; padding: 14px; position: relative; }
+  .sample-num { position: absolute; top: 10px; right: 12px; font-size: 10px; color: #bbb; }
+  .sample-tone { font-size: 10px; color: #888; margin-bottom: 6px; letter-spacing: 0.04em; font-weight: 700; }
+  .sample-text { font-size: 12px; color: #1a1a1a; line-height: 1.85; font-style: italic; }
+  .sample-tip { font-size: 11px; color: #888; margin-top: 8px; padding-top: 7px; border-top: 1px solid #e8e8e8; }
+
+  /* 초청 패키지 */
+  .target-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .tc { flex: 1; border-radius: 10px; padding: 10px 14px; text-align: center; }
+  .tc-blue { background: #E6F1FB; border: 1px solid #B5D4F4; }
+  .tc-teal { background: #E1F5EE; border: 1px solid #9FE1CB; }
+  .tc-label { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .tc-blue .tc-label { color: #0C447C; }
+  .tc-teal .tc-label { color: #085041; }
+  .tc-name { font-size: 14px; font-weight: 700; }
+  .tc-blue .tc-name { color: #185FA5; }
+  .tc-teal .tc-name { color: #0F6E56; }
+  .count-row { display: flex; align-items: center; gap: 8px; background: #E6F1FB; border-radius: 10px; padding: 12px 16px; margin-top: 10px; }
+  .count-num { font-size: 28px; font-weight: 700; color: #185FA5; }
+  .count-unit { font-size: 13px; color: #185FA5; }
+  .count-desc { font-size: 12px; color: #0C447C; }
+
+  /* 초대장 */
+  .invite-card { background: #f9f8f5; border: 1px solid #eee; border-radius: 12px; padding: 16px; margin-bottom: 10px; }
+  .invite-label { font-size: 10px; color: #888; margin-bottom: 6px; font-weight: 700; letter-spacing: 0.04em; }
+  .invite-text { font-size: 13px; color: #1a1a1a; line-height: 1.8; }
+  .name-blank { display: inline-block; border-bottom: 1.5px dashed #aaa; min-width: 40px; color: #185FA5; font-size: 12px; padding: 0 4px; }
+
+  /* 예산 */
+  .budget-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+  .metric { background: #f9f8f5; border-radius: 10px; padding: 10px 12px; }
+  .metric-label { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .metric-val { font-size: 18px; font-weight: 700; color: #1a1a1a; }
+  .metric-unit { font-size: 11px; color: #888; }
+  .metric-green { background: #E1F5EE; }
+  .metric-green .metric-label { color: #085041; }
+  .metric-green .metric-val { color: #0F6E56; }
+  .metric-green .metric-unit { color: #0F6E56; }
+
+  .bt { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .bt th { font-size: 11px; color: #888; font-weight: 700; padding: 7px 8px; text-align: left; border-bottom: 1px solid #eee; }
+  .bt td { padding: 9px 8px; border-bottom: 1px solid #f0f0f0; color: #1a1a1a; vertical-align: middle; }
+  .bt td.amt { text-align: right; font-weight: 700; white-space: nowrap; }
+  .bt td.calc { font-size: 11px; color: #888; }
+  .group-row td { background: #f9f8f5; font-size: 11px; color: #888; font-weight: 700; padding: 5px 8px; letter-spacing: 0.05em; }
+  .sub-total td { background: #f9f8f5; font-weight: 700; }
+  .reserve-row td { background: #F1EFE8; color: #5F5E5A; font-size: 12px; }
+  .reserve-row td.amt { color: #444; }
+  .grand-row td { background: #0F6E56; color: #E1F5EE; font-weight: 700; padding: 11px 8px; }
+  .grand-row td.amt { color: #fff; font-size: 15px; }
+  .free-badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 10px; background: #E1F5EE; color: #085041; margin-left: 4px; vertical-align: middle; }
+
+  /* 팁 박스 */
+  .tip { border-radius: 10px; padding: 10px 14px; margin-top: 10px; }
+  .tip-amber { background: #FAEEDA; border: 1px solid #FAC775; }
+  .tip-blue { background: #E6F1FB; border: 1px solid #B5D4F4; }
+  .tip-teal { background: #E1F5EE; border: 1px solid #9FE1CB; }
+  .tip-t { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+  .tip-t-amber { color: #633806; }
+  .tip-t-blue { color: #0C447C; }
+  .tip-t-teal { color: #085041; }
+  .tip-d { font-size: 12px; line-height: 1.7; }
+  .tip-d-amber { color: #854F0B; }
+  .tip-d-blue { color: #185FA5; }
+  .tip-d-teal { color: #0F6E56; }
+
+  /* 패키지 그리드 */
+  .pkg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .pkg-item { background: #f9f8f5; border-radius: 8px; padding: 10px 12px; border: 1px solid #eee; }
+  .pkg-label { font-size: 11px; color: #888; margin-bottom: 3px; }
+  .pkg-val { font-size: 12px; color: #1a1a1a; line-height: 1.6; }
+
+  .sub-label { font-size: 12px; font-weight: 700; color: #888; margin-bottom: 7px; margin-top: 12px; }
+
+  /* 범례 */
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #888; }
+  .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* 파트 구분선 */
+  .part-divider { text-align: center; margin: 28px 0 20px; position: relative; }
+  .part-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #e0e0e0; }
+  .part-divider span { position: relative; background: #f5f4f0; padding: 0 14px; font-size: 12px; color: #aaa; font-weight: 700; letter-spacing: 0.06em; }
+
+  .accent-box { background: #E1F5EE; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; font-size: 12px; color: #085041; line-height: 1.7; border: 1px solid #9FE1CB; }
+
+  /* 바 차트 */
+  .bar-section { margin-bottom: 4px; }
+  .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .bar-label { font-size: 12px; color: #888; width: 100px; flex-shrink: 0; text-align: right; }
+  .bar-track { flex: 1; background: #f0f0f0; border-radius: 4px; height: 20px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; }
+  .bar-amt { font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; }
+  .b-teal { background: #1D9E75; }
+  .b-blue { background: #378ADD; }
+  .b-amber { background: #BA7517; }
+  .b-coral { background: #D85A30; }
+  .b-gray { background: #888780; }
+  .b-purple { background: #534AB7; }
+
+  .fpkg { background: #f9f8f5; border-radius: 8px; padding: 10px 12px; }
+  .fpkg-l { font-size: 11px; color: #888; margin-bottom: 3px; }
+  .fpkg-v { font-size: 12px; color: #1a1a1a; line-height: 1.5; }
+  .friend-pkg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 상단 버튼 -->
+  <div class="top-bar no-print">
+    <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+  </div>
+
+  <!-- 커버 -->
+  <div class="cover">
+    <div class="cover-tag">2026 고등부 전도축제</div>
+    <div class="cover-title">새생명 전도축제 기획안</div>
+    <div class="cover-slogan">"네가 와서 기뻐"</div>
+    <div class="cover-info">
+      <div class="ci"><div class="ci-label">날짜</div><div class="ci-val">2026년 6월 14일 (일)</div></div>
+      <div class="ci"><div class="ci-label">시간</div><div class="ci-val">오전 9:30 ~ 11:30</div></div>
+      <div class="ci"><div class="ci-label">대상</div><div class="ci-val">고등부 + 새친구/장기결석자</div></div>
+    </div>
+  </div>
+
+  <!-- ① 행사 컨셉 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-teal">✦</div>
+      <div><div class="section-title">행사 컨셉</div><div class="section-sub">슬로건 · 분위기 · 방향성</div></div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-name">💚 따뜻한 환영</div>
+        <div class="concept-desc">낯선 이가 아닌 "오랜 친구"처럼 느끼도록, 이름표·웰컴키트로 첫인상부터 특별하게</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">🎉 축제 분위기</div>
+        <div class="concept-desc">생일파티 콘셉트로 "오늘 주인공은 너야!" 분위기 — 풍선, 케이크, 특별 왕관</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">👥 반별 공동체</div>
+        <div class="concept-desc">야외 돗자리 음식 나눔으로 반 공동체성 강화, 새친구와 자연스러운 어울림</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">🌱 새 생명 메시지</div>
+        <div class="concept-desc">예배 메시지는 "새 시작, 새 생명" — 탕자의 비유 중심, 초청받은 친구도 복음을 자연스럽게 경험하도록</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 당일 행사 프로그램 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-blue">2</div>
+      <div><div class="section-title">당일 행사 프로그램 (6월 14일)</div><div class="section-sub">09:00 ~ 11:30 · 1부 예배 + 2부 환영 및 교제</div></div>
+    </div>
+
+    <div class="time-summary">
+      <div class="ts-card ts-teal">
+        <div class="ts-label">1부 — 왕을 모신 날</div>
+        <div class="ts-val">09:00 ~ 10:45 (105분)</div>
+      </div>
+      <div class="ts-card ts-blue">
+        <div class="ts-label">2부 — "네가 와서 기뻐" 환영 및 교제</div>
+        <div class="ts-val">10:45 ~ 11:30 (45분)</div>
+      </div>
+    </div>
+
+    <!-- 1부 -->
+    <div class="part-header part-teal">
+      <div class="part-title"><span class="part-badge pb-teal">1부</span> 예배 — 왕을 모신 날</div>
+      <div class="part-sub-text">09:00 ~ 10:45</div>
+    </div>
+
+    <div class="tl" style="margin-bottom:16px;">
+      <div class="ptl-item p1-prep">
+        <div class="ptl-left"><div class="ptl-time">09:00 ~ 09:10</div><div class="ptl-dur">(10분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">교사 기도 모임</div>
+          <div class="ptl-who"><span class="who-pill">주관우 강도사님</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1-prep">
+        <div class="ptl-left"><div class="ptl-time">09:10 ~ 09:30</div><div class="ptl-dur">(20분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">접수 및 새친구 맞이</div>
+          <div class="ptl-who"><span class="who-pill">김지연 선생님</span><span class="who-pill">한예원 선생님</span></div>
+          <div class="ptl-note">웰컴 데스크 운영, 이름 스티커·웰컴키트 증정, 포토부스</div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">09:30 ~ 09:44</div><div class="ptl-dur">(15분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">사도신경 · 찬양</div>
+          <div class="ptl-who"><span class="who-pill">권예은 선생님</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">09:45 ~ 09:47</div><div class="ptl-dur">(2분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">대표기도</div>
+          <div class="ptl-who"><span class="who-pill">김루희 학생</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">09:47 ~ 09:52</div><div class="ptl-dur">(5분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">찬양</div>
+          <div class="ptl-who"><span class="who-pill">강하늘 선생님</span><span class="who-pill">조에콰이어 찬양대</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1 p1-key">
+        <div class="ptl-left"><div class="ptl-time">09:52 ~ 10:17</div><div class="ptl-dur">(25분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name" style="font-size:14px;">말씀</div>
+          <div class="ptl-who"><span class="who-pill">주관우 강도사님</span></div>
+          <div class="ptl-note">설교 제목 : 왕을 모신 날 · "네가 와서 기뻐" (탕자의 비유)</div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">10:17 ~ 10:20</div><div class="ptl-dur">(3분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">새신자 등록 · 결신기도 · 헌금기도</div>
+          <div class="ptl-who"><span class="who-pill">주관우 강도사님</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">10:20 ~ 10:23</div><div class="ptl-dur">(3분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">파송 찬양</div>
+          <div class="ptl-who"><span class="who-pill">권예은 선생님</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">10:23 ~ 10:25</div><div class="ptl-dur">(2분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">주기도문</div>
+          <div class="ptl-who"><span class="who-pill">권예은 선생님</span></div>
+        </div>
+      </div>
+      <div class="ptl-item p1">
+        <div class="ptl-left"><div class="ptl-time">10:25 ~ 10:30</div><div class="ptl-dur">(5분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div><div class="ptl-line"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">광고</div>
+        </div>
+      </div>
+      <div class="ptl-item p1-special">
+        <div class="ptl-left"><div class="ptl-time">10:30 ~ 10:45</div><div class="ptl-dur">(15분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">생일파티 및 게임</div>
+          <div class="ptl-who"><span class="who-pill">고등부 임원단</span></div>
+          <div class="ptl-note">6월 생일자 왕관 파티 + 개인전 OX퀴즈 · 경품 30,000원</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2부 -->
+    <div class="part-header part-blue">
+      <div class="part-title"><span class="part-badge pb-blue">2부</span> "네가 와서 기뻐" — 환영 및 교제</div>
+      <div class="part-sub-text">10:45 ~ 11:30</div>
+    </div>
+
+    <div class="tl">
+      <div class="ptl-item p2">
+        <div class="ptl-left"><div class="ptl-time">10:45 ~ 11:30</div><div class="ptl-dur">(45분)</div></div>
+        <div class="ptl-spine"><div class="ptl-dot"></div></div>
+        <div class="ptl-right">
+          <div class="ptl-name">음식 나눔 및 교제</div>
+          <div class="ptl-who"><span class="who-pill">강은선 선생님</span></div>
+          <div class="ptl-note">교회 외부 나무 밑 돗자리 · 이삭토스트+음료 (1인 5,000원, 70명 기준) · 선생님 자율 추가 음식 별도</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ 홍보 전체 일정 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-teal">1</div>
+      <div><div class="section-title">홍보 계획 — 전체 일정</div><div class="section-sub">2026년 5월 10일 ~ 6월 14일</div></div>
+    </div>
+
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#888780;"></div>사전 준비</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#1D9E75;"></div>장기결석자 케어</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#378ADD;"></div>디지털 심방</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#BA7517;"></div>새친구 초청</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#D85A30;"></div>최종 독려</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#534AB7;"></div>D-Day</div>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item phase-prep">
+        <div class="tl-left"><div class="tl-date">5월 10일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">사전 준비</div>
+          <div class="tl-title">전체 홍보 공식 시작</div>
+          <div class="tl-detail">부서장 공지, 고등부 단체카톡 안내, 인스타그램 D-35 카운트다운 시작. 교사 대상 관계지도 작성 사전 안내.</div>
+          <div class="tl-tags"><span class="tag">공식 공지</span><span class="tag">SNS 시작</span><span class="tag">교사 사전 안내</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-prep">
+        <div class="tl-left"><div class="tl-date">5월 17일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">사전 준비</div>
+          <div class="tl-title">관계지도 작성</div>
+          <div class="tl-detail">학년별 학생 관계지도 작성 + 교사·학생 간 관계지도 작성. 누가 누구에게 카드를 쓰고 패키지를 전달할지 파악하는 기초 작업.</div>
+          <div class="hl hl-teal">학년별 학생 관계지도 + 교사·학생 간 관계지도 — 두 가지 동시 작성</div>
+          <div class="tl-tags" style="margin-top:8px;"><span class="tag">학년별 관계지도</span><span class="tag">교사-학생 관계지도</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-prep">
+        <div class="tl-left"><div class="tl-date">5월 18~22일</div><div class="tl-dow">월~금</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">사전 준비</div>
+          <div class="tl-title">관계지도 배포 및 전달 방법 확정</div>
+          <div class="tl-detail">고등부 전체 관계지도 교사 배포. 장기결석자별 초청장·선물 패키지 전달 방법(친한 친구 / 부모님 경유 / 교사 직접) 확정 및 역할 배분.</div>
+          <div class="tl-tags"><span class="tag">전달 방법 확정</span><span class="tag">역할 배분</span><span class="tag">카드 작성 시작</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-care">
+        <div class="tl-left"><div class="tl-date">5월 24일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">장기결석자 케어</div>
+          <div class="tl-title">편지 3종 세트 + 간식 패키지 조립 → 전달</div>
+          <div class="tl-detail">담임쌤·강도사님·친한친구/청년쌤 카드 3장 완성. 간식(과자·젤리·초콜릿 등, 음료 제외, 1인 2,000원)과 함께 봉투에 패키징. 학생별 관계성 가장 높은 방법 1가지로 전달 시작.</div>
+          <div class="hl hl-teal">카드에 포함 : 행사 날짜(6/14) · 시간(오전 9:30) · 장소 · 고등부 인스타 QR코드</div>
+          <div class="tl-tags" style="margin-top:8px;"><span class="tag">카드 3장 완성</span><span class="tag">간식 패키징</span><span class="tag">전달 시작</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-care">
+        <div class="tl-left"><div class="tl-date">5월 25~30일</div><div class="tl-dow">월~토</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">장기결석자 케어 + SNS 홍보</div>
+          <div class="tl-title">패키지 전달 완료 + 집중 SNS 홍보</div>
+          <div class="tl-detail">5월 24일 미전달 건 완료. 인스타 릴스·스토리 집중 게시, 디지털 초청 카드 카카오톡 공유 독려.</div>
+          <div class="tl-tags"><span class="tag">전달 완료</span><span class="tag">인스타 집중 홍보</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-digital">
+        <div class="tl-left"><div class="tl-date">5월 31일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">디지털 심방</div>
+          <div class="tl-title">디지털 문고리 심방</div>
+          <div class="tl-detail">장기결석자 전원에게 카카오 선물하기(바나나우유·초콜릿·아이스크림 쿠폰 등, 평균 3,000원) + 안부 메시지 발송. 1회 발송 후 추가 연락 자제.</div>
+          <div class="hl hl-blue">발송자 : 담임교사 또는 카드 3번 작성자(친한 친구·청년쌤)와 동일인 권장</div>
+          <div class="tl-tags" style="margin-top:8px;"><span class="tag">카카오 선물하기</span><span class="tag">안부 메시지</span><span class="tag">1회 발송</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-invite">
+        <div class="tl-left"><div class="tl-date">6월 1~6일</div><div class="tl-dow">월~토</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">새친구 초청 준비</div>
+          <div class="tl-title">6월 7일 초청 패키지 준비 완료</div>
+          <div class="tl-detail">초대장 인쇄 완료, 간식 구매(1인 3,000원) 및 80개 패키지 봉투 조립. 전도 참여 학생 최종 파악 및 배부 목록 정리.</div>
+          <div class="tl-tags"><span class="tag">초대장 인쇄</span><span class="tag">80개 패키지 조립</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-invite">
+        <div class="tl-left"><div class="tl-date">6월 7일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">새친구 초청</div>
+          <div class="tl-title">초청 패키지 80개 배포</div>
+          <div class="tl-detail">새친구 및 장기결석자 대상 초대장+간식 패키지 80개, 전도 학생에게 배부.</div>
+          <div class="hl hl-amber">전달 타이밍 : 6월 7일(일) 이후 ~ 6월 13일(토) 사이 직접 전달 완료</div>
+          <div class="tl-tags" style="margin-top:8px;"><span class="tag">새친구 대상</span><span class="tag">장기결석자 대상</span><span class="tag">80개</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-final">
+        <div class="tl-left"><div class="tl-date">6월 13일</div><div class="tl-dow">토요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">최종 독려</div>
+          <div class="tl-title">교사 1:1 최종 확인</div>
+          <div class="tl-detail">담당 학생 전원 카톡/전화 — 참석 여부 최종 확인. 차편 필요 학생 파악 및 연결. 초청 패키지 미전달 건 당일 직접 전달.</div>
+          <div class="tl-tags"><span class="tag">1:1 전화·카톡</span><span class="tag">차편 확인</span></div>
+        </div>
+      </div>
+      <div class="tl-item phase-dday">
+        <div class="tl-left"><div class="tl-date">6월 14일</div><div class="tl-dow">일요일</div></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-right">
+          <div class="tl-phase">D-DAY</div>
+          <div class="tl-title">새생명 전도축제 본 행사</div>
+          <div class="tl-detail">오전 9:00 스태프 세팅 시작 → 9:30 행사 시작 → 11:30 마무리</div>
+          <div class="tl-tags"><span class="tag">오전 9:30 시작</span><span class="tag">오전 11:30 종료</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 장기결석자 케어 상세 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-teal">♥</div>
+      <div><div class="section-title">장기결석자 — 3장 사랑 카드 + 간식 패키지</div><div class="section-sub">카드 3장 5월 24일(일)까지 완성 → 간식과 함께 일괄 패키징 → 전달</div></div>
+    </div>
+
+    <div class="sub-label">카드 작성자 (3장, 모두 5월 24일까지 완성)</div>
+    <div class="weeks">
+      <div class="week-card w1">
+        <div class="week-accent"></div>
+        <div class="week-num">카드 1</div>
+        <div class="week-who">담임 선생님</div>
+        <div class="week-desc">학생과 가장 가까운 관계에서 오는 따뜻한 안부. "네가 보고 싶었어, 요즘 어떻게 지내?"</div>
+      </div>
+      <div class="week-card w2">
+        <div class="week-accent"></div>
+        <div class="week-num">카드 2</div>
+        <div class="week-who">강도사님</div>
+        <div class="week-desc">목회적 돌봄이 담긴 카드. "하나님도, 우리도 네 자리를 비워두고 있어."</div>
+      </div>
+      <div class="week-card w3">
+        <div class="week-accent"></div>
+        <div class="week-num">카드 3</div>
+        <div class="week-who">친한 친구 또는 관계 있는 청년쌤</div>
+        <div class="week-desc">동료 감각의 친근한 언어로. "우리 같이 가자, 나 혼자 심심해."</div>
+      </div>
+    </div>
+
+    <div style="background:#f9f8f5; border-radius:10px; padding:14px; margin-top:12px; border:1px solid #eee;">
+      <div class="sub-label" style="margin-top:0;">간식 구성 (1인 2,000원)</div>
+      <div class="snack-row">
+        <span class="snack-pill">소포장 과자 2종</span>
+        <span class="snack-pill">젤리 또는 사탕</span>
+        <span class="snack-pill">초콜릿</span>
+        <span class="snack-pill">에너지바 또는 쿠키</span>
+        <span class="snack-pill snack-del">음료 제외</span>
+      </div>
+      <div style="font-size:11px; color:#888; margin-top:4px;">크라프트 봉투 또는 예쁜 종이 쇼핑백에 카드 3장 + 간식 묶음</div>
+
+      <div class="sub-label">카드에 포함할 내용</div>
+      <div class="card-includes">
+        <div class="ci-item"><div class="ci-icon">📅</div><div class="ci-text">행사 날짜<br>6월 14일(일)</div></div>
+        <div class="ci-item"><div class="ci-icon">🕐</div><div class="ci-text">시간<br>오전 9:30</div></div>
+        <div class="ci-item"><div class="ci-icon">📍</div><div class="ci-text">장소<br>교회명/예배당</div></div>
+        <div class="ci-item"><div class="ci-icon">📸</div><div class="ci-text">고등부 인스타<br>QR코드</div></div>
+      </div>
+
+      <div class="sub-label">전달 방법 — 학생별 관계성이 가장 높은 1가지 선택</div>
+      <div class="delivery-row">
+        <div class="d-chip">
+          <div class="d-chip-label">친한 친구</div>
+          <div class="d-chip-desc">같은 학교·반 친구가 직접 전달</div>
+          <div class="d-badge">관계성 최고</div>
+        </div>
+        <div class="d-chip">
+          <div class="d-chip-label">부모님 경유</div>
+          <div class="d-chip-desc">학부모 연락 후 가정으로 전달</div>
+        </div>
+        <div class="d-chip">
+          <div class="d-chip-label">교사 직접</div>
+          <div class="d-chip-desc">담임교사가 동선 맞춰 직접 전달</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 디지털 문고리 심방 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-blue">📱</div>
+      <div><div class="section-title">디지털 문고리 심방</div><div class="section-sub">5월 31일(일) 1회 · 장기결석자 전원 · 카카오톡 선물하기</div></div>
+    </div>
+    <div class="digital-card">
+      <div style="font-size:12px; font-weight:700; color:#666; margin-bottom:8px;">선물 후보 (1인 평균 3,000원)</div>
+      <div class="snack-row">
+        <span class="snack-pill">바나나우유</span>
+        <span class="snack-pill">초콜릿 세트</span>
+        <span class="snack-pill">아이스크림 쿠폰</span>
+        <span class="snack-pill">편의점 쿠폰 3,000원</span>
+        <span class="snack-pill">음료 기프티콘</span>
+      </div>
+      <div class="tip tip-teal" style="margin-top:10px; margin-bottom:0;">
+        <div class="tip-t tip-t-teal">운영 방법</div>
+        <div class="tip-d tip-d-teal">담임교사 또는 카드 3번 작성자(친한 친구·청년쌤)와 동일인이 발송. 발송 후 답장이 없어도 추가 연락 자제 — 부담을 주지 않는 것이 핵심.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 6월 7일 초청 패키지 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-amber">→</div>
+      <div><div class="section-title">6월 7일 초청 패키지</div><div class="section-sub">새친구 + 장기결석자 대상 · 80개 준비 · 전도 학생에게 배포</div></div>
+    </div>
+    <div class="target-row">
+      <div class="tc tc-blue"><div class="tc-label">대상 ①</div><div class="tc-name">새친구</div></div>
+      <div class="tc tc-teal"><div class="tc-label">대상 ②</div><div class="tc-name">장기결석자</div></div>
+    </div>
+    <div class="friend-pkg-grid">
+      <div class="fpkg"><div class="fpkg-l">초대장</div><div class="fpkg-v">감성 카드형 초대장 (날짜·시간·장소·고등부 인스타 QR 포함). 친구가 손글씨로 이름 적는 칸 포함.</div></div>
+      <div class="fpkg"><div class="fpkg-l">간식 선물 패키지</div><div class="fpkg-v">소포장 과자·젤리·초콜릿 2~3종 (1인 3,000원). 투명 OPP 봉투 또는 크라프트 봉투에 묶음.</div></div>
+      <div class="fpkg"><div class="fpkg-l">초대장 문구 포인트</div><div class="fpkg-v">"너를 기다리고 있어" + 친구가 손글씨로 이름 적는 칸 → 나만을 위한 초대장 느낌.</div></div>
+      <div class="fpkg"><div class="fpkg-l">전달 타이밍</div><div class="fpkg-v">6월 7일(일) 이후 ~ 6월 13일(토) 사이 친구에게 직접 전달 완료.</div></div>
+    </div>
+    <div class="count-row">
+      <div class="count-num">80</div>
+      <div class="count-unit">개</div>
+      <div style="flex:1; margin-left:10px;"><div class="count-desc">새친구 + 장기결석자 합산 기준. 예비 5~10개 추가 준비 권장.</div></div>
+    </div>
+  </div>
+
+  <!-- ⑦ 카드 문구 샘플 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-teal">✍</div>
+      <div><div class="section-title">카드 문구 샘플</div><div class="section-sub">담임쌤 · 강도사님 · 친구/청년쌤 · 디지털 심방 · 초청 패키지</div></div>
+    </div>
+
+    <div class="accent-box">손글씨로 직접 쓸 때 가장 마음이 전달됩니다. 아래 샘플을 참고해 각 학생의 이름과 기억나는 에피소드를 한 줄 넣으면 훨씬 좋아요. <strong>[이름]</strong> 부분은 반드시 실제 이름으로 바꿔 작성하세요.</div>
+
+    <!-- 카드 1 담임 -->
+    <div class="writer-header">
+      <span class="writer-badge wb-teal">카드 1</span>
+      <span class="writer-name">담임 선생님</span>
+    </div>
+    <div class="sample-grid">
+      <div class="sample-card">
+        <div class="sample-num">샘플 1</div>
+        <div class="sample-tone">따뜻한 안부형</div>
+        <div class="sample-text">[이름]아, 잘 지내고 있어?<br>선생님은 네가 자주 생각나.<br>요즘 어떻게 지내는지 궁금했는데, 이렇게라도 안부 전하고 싶었어.<br>6월 14일에 우리 다 같이 모이는 날이 있는데, 네 자리도 남겨 뒀어. 꼭 와줘.</div>
+        <div class="sample-tip">에피소드 추가 예시 : "작년에 같이 수련회 갔던 거 기억나?"</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 2</div>
+        <div class="sample-tone">보고 싶다형</div>
+        <div class="sample-text">[이름]아,<br>선생님이 보고 싶어서 편지 썼어.<br>얼마나 됐지? 생각보다 많이 보고 싶더라.<br>잘 지내고 있으면 그걸로 됐는데, 그래도 한 번만 와줄 수 있어? 6월 14일, 일요일이야.<br>올 수 있으면 연락 줘.</div>
+        <div class="sample-tip">연락처 또는 카카오 ID를 카드 하단에 적어두면 좋아요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 3</div>
+        <div class="sample-tone">걱정·격려형</div>
+        <div class="sample-text">[이름]아, 요즘 어때?<br>혹시 힘든 일이 있는 건 아닌지, 선생님은 가끔 네 생각이 나.<br>이유 같은 건 몰라도 돼. 그냥 한 번 얼굴 보고 싶어.<br>6월 14일에 특별한 날 준비했는데, 부담 없이 와줘. 기다리고 있을게.</div>
+        <div class="sample-tip">장기 결석 이유를 알고 있다면 그 상황에 맞게 한 줄 더 추가하세요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 4</div>
+        <div class="sample-tone">짧고 진심형</div>
+        <div class="sample-text">[이름]아.<br>선생님은 네 편이야. 언제나.<br>6월 14일 일요일, 한 번만 와줘.<br>그냥, 보고 싶어서.</div>
+        <div class="sample-tip">짧고 진심 어린 문구가 더 마음에 닿을 수 있어요.</div>
+      </div>
+    </div>
+
+    <!-- 카드 2 강도사님 -->
+    <div class="writer-header">
+      <span class="writer-badge wb-blue">카드 2</span>
+      <span class="writer-name">강도사님</span>
+    </div>
+    <div class="sample-grid">
+      <div class="sample-card">
+        <div class="sample-num">샘플 1</div>
+        <div class="sample-tone">목회적 돌봄형</div>
+        <div class="sample-text">[이름]아, 안녕.<br>오래간만에 편지 쓰네.<br>하나님은 항상 네 편이야. 그리고 우리 고등부도 마찬가지야.<br>네가 어디 있든, 어떤 상황이든, 언제든 돌아올 수 있는 자리가 여기 있어.<br>6월 14일에 우리 볼 수 있으면 좋겠어.</div>
+        <div class="sample-tip">'와야 한다'는 압박보다 '자리가 있다'는 메시지가 효과적이에요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 2</div>
+        <div class="sample-tone">탕자 비유형</div>
+        <div class="sample-text">[이름]아,<br>성경에 이런 이야기가 있어. 아버지가 아들이 멀리 있을 때도 매일 기다렸다는 이야기.<br>하나님도 그렇게 너를 기다리고 계셔. 그리고 나도, 우리 고등부도 마찬가지야.<br>6월 14일, 한 번 와줄 수 있어?</div>
+        <div class="sample-tip">당일 설교 주제(탕자의 비유)와 연결되어 행사 메시지와 일관성이 생겨요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 3</div>
+        <div class="sample-tone">기도하고 있다형</div>
+        <div class="sample-text">[이름]아, 잘 지내고 있어?<br>사실 선생님은 네 이름 부르며 기도한 적이 있어.<br>잘 지내는지, 건강한지, 행복한지.<br>6월 14일에 고등부 특별한 날인데, 꼭 같이 있었으면 해. 기다릴게.</div>
+        <div class="sample-tip">기도하고 있다는 표현이 학생에게 깊은 인상을 남깁니다.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 4</div>
+        <div class="sample-tone">따뜻한 격려형</div>
+        <div class="sample-text">[이름]아,<br>네가 어떤 하루를 보내고 있는지 궁금해.<br>힘든 일이 있다면 혼자 버티지 않아도 돼.<br>우리가 있고, 무엇보다 하나님이 네 곁에 계셔.<br>6월 14일, 잠깐이라도 와줘. 얼굴 보고 싶어.</div>
+        <div class="sample-tip">청소년이 부담 없이 받아들일 수 있게 신앙 언어를 자연스럽게 섞어요.</div>
+      </div>
+    </div>
+
+    <!-- 카드 3 친구/청년쌤 -->
+    <div class="writer-header">
+      <span class="writer-badge wb-amber">카드 3</span>
+      <span class="writer-name">친한 친구 또는 관계 있는 청년쌤</span>
+    </div>
+    <div class="sample-grid">
+      <div class="sample-card">
+        <div class="sample-num">샘플 1</div>
+        <div class="sample-tone">친구에게 — 솔직형</div>
+        <div class="sample-text">[이름]아 나야.<br>갑자기 이런 거 받으면 좀 웃기지? ㅋㅋ<br>근데 진짜로 보고 싶어서.<br>6월 14일 일요일에 같이 가자. 나 혼자 가면 심심하거든.<br>부담 갖지 말고, 그냥 나 만나러 온다고 생각하고 와.</div>
+        <div class="sample-tip">친구끼리 쓸 때는 교회 언어보다 일상 언어가 더 자연스러워요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 2</div>
+        <div class="sample-tone">친구에게 — 그리움형</div>
+        <div class="sample-text">[이름]아,<br>너 요즘 어떻게 지내?<br>솔직히 연락 하고 싶었는데 왠지 쑥스러워서.<br>6월 14일에 우리 다 모이는데, 너도 오면 좋겠어.<br>오랜만에 같이 밥도 먹고 놀자. 진짜로.</div>
+        <div class="sample-tip">관계를 회복하는 느낌으로, '친구와의 만남'을 강조해요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 3</div>
+        <div class="sample-tone">청년쌤 — 친근형</div>
+        <div class="sample-text">[이름]아, 나 기억해?<br>오랜만이지? 잘 지내고 있어?<br>이번에 고등부에서 특별한 행사 준비했는데, 네 생각이 나서 이렇게 편지 썼어.<br>6월 14일 일요일이야. 부담 없이 와줘. 같이 밥 먹고 이야기하자.</div>
+        <div class="sample-tip">'선생님'보다 '언니·오빠' 포지션으로 접근할 때 더 효과적이에요.</div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-num">샘플 4</div>
+        <div class="sample-tone">청년쌤 — 진심형</div>
+        <div class="sample-text">[이름]아,<br>억지로 오라는 게 아니야. 그냥 한 번 쉬러 온다고 생각해줘.<br>6월 14일, 맛있는 것도 먹고 잠깐 쉬다 가면 돼.<br>기다리고 있을게.</div>
+        <div class="sample-tip">공감과 배려가 느껴지게 써요.</div>
+      </div>
+    </div>
+
+    <!-- 디지털 심방 메시지 -->
+    <div style="margin-top:22px; padding-top:18px; border-top:1px solid #eee;">
+      <div class="writer-header" style="margin-top:0;">
+        <span class="writer-badge wb-coral">디지털 심방</span>
+        <span class="writer-name">카카오톡 메시지 샘플 (5월 31일 발송)</span>
+      </div>
+      <div class="sub-label">담임 선생님이 보낼 때</div>
+      <div class="msg-bubble mb-teal">
+        <div class="msg-label">샘플 1 — 편안한 안부형</div>
+        <div class="msg-body">[이름]아, 선생님이야 😊<br>갑자기 연락해서 반가워? 어색해? ㅎㅎ<br>요즘 어떻게 지내는지 궁금해서 작은 선물 보냈어. 받아줘. 부담 없이 😊<br>그리고 6월 14일 일요일에 우리 고등부 특별한 날인데, 시간 되면 한 번 와줄 수 있어? 기다리고 있을게!</div>
+      </div>
+      <div class="msg-bubble mb-teal">
+        <div class="msg-label">샘플 2 — 짧고 따뜻한형</div>
+        <div class="msg-body">[이름]아 나 [선생님 이름] 선생님이야.<br>별거 아닌데 작은 거 보냈어 😄<br>잘 지내지? 보고 싶다.<br>6월 14일 일요일, 우리 만나자!</div>
+      </div>
+      <div class="sub-label" style="margin-top:14px;">친한 친구가 보낼 때</div>
+      <div class="msg-bubble mb-blue">
+        <div class="msg-label">샘플 1 — 장난스럽고 친근한형</div>
+        <div class="msg-body">야 [이름]아 ㅋㅋㅋ<br>나 OOO인데 갑자기 선물 보냄 ㅋㅋ 보고 싶어서 ^^<br>6월 14일 일요일에 교회 행사 있는데 나랑 같이 가자.<br>맛있는 것도 먹을 수 있어ㅎㅎ 오면 나 있을게!</div>
+      </div>
+      <div class="msg-bubble mb-blue">
+        <div class="msg-label">샘플 2 — 그리움형</div>
+        <div class="msg-body">[이름]아, 오랜만이다.<br>잘 지내지? 갑자기 생각나서 선물 보냈어.<br>6월 14일 일요일에 고등부 행사 있는데 같이 가면 좋겠다.<br>오랜만에 보자 진짜로 🙂</div>
+      </div>
+      <div class="sub-label" style="margin-top:14px;">청년 선생님이 보낼 때</div>
+      <div class="msg-bubble mb-amber">
+        <div class="msg-label">샘플 1 — 따뜻한 오빠/언니형</div>
+        <div class="msg-body">[이름]아, 나 [청년쌤 이름] 오빠/언니야.<br>잘 지내? 갑자기 네 생각이 나서 작은 거 보냈어 😊<br>6월 14일 일요일에 고등부 행사 있는데, 같이 가면 어떨까?<br>밥도 먹고 놀 수 있어. 부담 없이 와줘, 기다릴게!</div>
+      </div>
+    </div>
+
+    <!-- 초청 패키지 초대장 -->
+    <div style="margin-top:22px; padding-top:18px; border-top:1px solid #eee;">
+      <div class="writer-header" style="margin-top:0;">
+        <span class="writer-badge wb-coral" style="background:#534AB7;">초청 패키지</span>
+        <span class="writer-name">6월 7일 초대장 문구 샘플</span>
+      </div>
+      <div class="invite-card">
+        <div class="invite-label">초대장 앞면 — 메인 문구 (인쇄용)</div>
+        <div class="invite-text" style="text-align:center; padding:8px 0; font-size:15px; font-weight:700;">"네가 와서 기뻐"<br><span style="font-size:12px; font-weight:400; color:#888;">2026 고등부 새생명 전도축제</span><br><br><span style="font-size:13px; font-weight:400;">6월 14일(일) 오전 9:30</span><br><span style="font-size:12px; color:#888;">[교회명] [예배당 이름]</span></div>
+      </div>
+      <div class="invite-card">
+        <div class="invite-label">초대장 안쪽 — 전도 학생이 손글씨로 이름 작성</div>
+        <div class="invite-text">
+          <span class="name-blank">&nbsp;&nbsp;&nbsp;&nbsp;</span> 에게<br><br>
+          나랑 같이 가자.<br>
+          6월 14일 일요일, 맛있는 것도 먹고 재밌는 시간도 있어.<br>
+          부담 없이 와줘 — 내가 옆에 있을게.<br><br>
+          보고 싶었어.<br><br>
+          <span style="color:#888; font-size:12px;">From.</span> <span class="name-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+        <div class="msg-note">전도 학생이 친구 이름과 자기 이름을 직접 손으로 써서 개인화 — 받는 사람이 '나만을 위한 초대장'으로 느끼게 됩니다.</div>
+      </div>
+      <div class="sample-grid">
+        <div class="sample-card">
+          <div class="sample-tone">새친구 대상 — 처음 오는 친구에게</div>
+          <div class="sample-text">[이름]아,<br>교회 어떤 곳인지 궁금하지 않아?<br>딱딱하지 않아, 진짜로.<br>6월 14일에 나랑 같이 한 번만 와봐.<br>맛있는 것도 먹고 재밌는 게임도 있거든. 일단 와봐!</div>
+        </div>
+        <div class="sample-card">
+          <div class="sample-tone">장기결석자 대상 — 오랫동안 못 본 친구에게</div>
+          <div class="sample-text">[이름]아,<br>오랜만이지? 많이 보고 싶었어.<br>뭔가 어색할 수도 있는데, 그냥 나 만나러 온다고 생각하고 와줘.<br>다들 네 얼굴 보고 싶어 해.<br>6월 14일 일요일, 꼭 와줘!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ 전체 예산 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="s-icon icon-amber">₩</div>
+      <div><div class="section-title">전체 예산 (최종)</div><div class="section-sub">장기결석자 30명 · 초청패키지 80개 · 당일 참석 70명 기준</div></div>
+    </div>
+
+    <div class="budget-summary">
+      <div class="metric"><div class="metric-label">홍보 예산</div><div class="metric-val">515,000<span class="metric-unit">원</span></div></div>
+      <div class="metric"><div class="metric-label">행사 당일 예산</div><div class="metric-val">560,000<span class="metric-unit">원</span></div></div>
+      <div class="metric"><div class="metric-label">예비비 (10%)</div><div class="metric-val">100,000<span class="metric-unit">원</span></div></div>
+      <div class="metric metric-green"><div class="metric-label">총 합계</div><div class="metric-val">1,175,000<span class="metric-unit">원</span></div></div>
+    </div>
+
+    <div class="bar-section">
+      <div class="bar-row"><div class="bar-label">홍보물 인쇄</div><div class="bar-track"><div class="bar-fill b-gray" style="width:7%"><span class="bar-amt">80,000</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">결석자 카드·간식</div><div class="bar-track"><div class="bar-fill b-teal" style="width:9%"><span class="bar-amt">105,000</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">디지털 문고리</div><div class="bar-track"><div class="bar-fill b-blue" style="width:8%"><span class="bar-amt">90,000</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">초청 패키지 80개</div><div class="bar-track"><div class="bar-fill b-amber" style="width:21%"><span class="bar-amt">240,000</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">웰컴키트·소품</div><div class="bar-track"><div class="bar-fill b-purple" style="width:18%"><span class="bar-amt">210,000</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">음식 나눔</div><div class="bar-track"><div class="bar-fill b-coral" style="width:30%"><span class="bar-amt">350,000</span></div></div></div>
+    </div>
+
+    <table class="bt" style="margin-top:16px;">
+      <thead>
+        <tr><th style="width:30%">항목</th><th>산출 기준</th><th style="width:17%">금액</th></tr>
+      </thead>
+      <tbody>
+        <tr class="group-row"><td colspan="3">A. 홍보 예산</td></tr>
+        <tr><td>홍보물 인쇄</td><td class="calc">초청 카드 100매 + 현수막 1장</td><td class="amt">80,000원</td></tr>
+        <tr><td>장기결석자 카드·봉투</td><td class="calc">카드지 3종 × 30명 + 봉투·포장</td><td class="amt">45,000원</td></tr>
+        <tr><td>장기결석자 간식 패키지</td><td class="calc">2,000원 × 30명</td><td class="amt">60,000원</td></tr>
+        <tr><td>디지털 문고리 기프티콘</td><td class="calc">3,000원 × 30명</td><td class="amt">90,000원</td></tr>
+        <tr><td>6월 7일 초청 패키지</td><td class="calc">초대장 인쇄 + 간식 3,000원 × 80개</td><td class="amt">240,000원</td></tr>
+        <tr class="sub-total"><td colspan="2">홍보 소계</td><td class="amt">515,000원</td></tr>
+        <tr class="group-row"><td colspan="3">B. 행사 당일 예산</td></tr>
+        <tr><td>웰컴키트</td><td class="calc">기념품+간식, 새친구 20명 × 5,000원 (환영 소선물 통합)</td><td class="amt">100,000원</td></tr>
+        <tr><td>생일파티 <span class="free-badge">비용 없음</span></td><td class="calc">기존 구매 선물로 대체</td><td class="amt" style="color:#aaa;">0원</td></tr>
+        <tr><td>게임 경품 (개인전)</td><td class="calc">개인전 경품 — 소정의 상품권·간식 등</td><td class="amt">30,000원</td></tr>
+        <tr><td>행사 소품·데코</td><td class="calc">풍선, 포토부스 소품, 돗자리</td><td class="amt">80,000원</td></tr>
+        <tr><td>음식 나눔 (이삭토스트+음료)</td><td class="calc">5,000원 × 70명 (선생님 자율 추가 별도)</td><td class="amt">350,000원</td></tr>
+        <tr class="sub-total"><td colspan="2">행사 당일 소계</td><td class="amt">560,000원</td></tr>
+        <tr class="group-row"><td colspan="3">C. 합계</td></tr>
+        <tr><td colspan="2">A + B 합계</td><td class="amt">1,075,000원</td></tr>
+        <tr class="reserve-row"><td>예비비 (약 10%)</td><td class="calc">당일 긴급 지출, 인원 변동 대비</td><td class="amt">100,000원</td></tr>
+        <tr class="grand-row"><td colspan="2">총 예산</td><td class="amt">1,175,000원</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip tip-amber">
+      <div class="tip-t tip-t-amber">이전 대비 절감 내역</div>
+      <div class="tip-d tip-d-amber">새친구 환영 소선물 제거 → -100,000원 / 생일파티 기존 선물 대체 → -120,000원 / 게임 경품 조정 → -20,000원<br>최종 총 예산 <strong>1,175,000원</strong> (홍보 515,000 + 당일 560,000 + 예비비 100,000)</div>
+    </div>
+    <div class="tip tip-blue" style="margin-top:8px;">
+      <div class="tip-t tip-t-blue">음식 나눔 비고</div>
+      <div class="tip-d tip-d-blue">이삭토스트+음료 350,000원은 공동 예산 기준. 선생님들이 자율적으로 추가 준비하는 반찬·과일·간식은 별도 집계하지 않았습니다. 실제 참석 인원 확정 후 재조정 가능합니다.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; font-size:11px; color:#bbb; margin-top:20px; padding-bottom:16px;">
+    2026 고등부 새생명 전도축제 기획안 · 작성일 2026년 5월
+  </div>
+
+</div>
+</body>
+</html>
